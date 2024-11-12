@@ -15,15 +15,15 @@ app.secret_key = 'your_secret_key'
 # MySQL configurations
 db_config = {
     'user': 'admin',
-    'password': 'StrongP@ssw0rd',
+    'password': 'passwd,
     'host': 'localhost',
     'database': 'foodbridge',
     'cursorclass': pymysql.cursors.DictCursor  # Use the DictCursor for better row handling
 }
 
 # Telegram bot configuration
-TELEGRAM_BOT_TOKEN = '7991243142:AAGzuYMNNGyKxQPpwFKw330yzLq8GrzzzQE'
-TELEGRAM_CHAT_ID = '-1002449780907'  # Your Telegram group chat ID
+TELEGRAM_BOT_TOKEN = #bot token
+TELEGRAM_CHAT_ID = ' # Your Telegram group chat ID
 
 def send_telegram_message(donation):
     message = (
