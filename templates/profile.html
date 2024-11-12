@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Bridge - Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Reset and global styling */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #e9f7e5;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Container styling */
+        .container {
+            width: 100%;
+            max-width: 480px;
+            background: #ffffff;
+            padding: 40px 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Header styling */
+        h2 {
+            font-size: 30px;
+            color: #28a745; /* Green header */
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* Profile details */
+        .profile-info {
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .profile-info strong {
+            color: #28a745; /* Green strong text */
+        }
+
+        /* Email with icon */
+        .email-info {
+            font-size: 16px;
+            color: #555;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .email-info i {
+            margin-right: 10px;
+            color: #28a745; /* Green icon */
+        }
+
+        /* Button styling */
+        .btn-logout {
+            padding: 12px 20px;
+            background-color: #28a745; /* Green button */
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+        .btn-logout:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h2 {
+                font-size: 26px;
+            }
+
+            .btn-logout {
+                padding: 10px 18px;
+                font-size: 14px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>User Profile</h2>
+        <div class="profile-info">
+            <p><strong>User:</strong> {{ username }}</p>
+            <div class="email-info">
+                <i class="fas fa-envelope"></i> <!-- Email icon -->
+                <p><strong>Email ID:</strong> {{ email }}</p>
+            </div>
+            <button class="btn-logout" onclick="window.location.href='{{ url_for('logout') }}'">Logout</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Bridge - Contact</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8fafc;
+            color: #333;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 400;
+            color: black;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .bridge {
+            font-weight: bold;
+            color: #06C167;
+        }
+
+        .nav-bar {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-bar a {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+            border-radius: 20px;
+            text-transform: capitalize;
+        }
+
+        .nav-bar a:hover {
+            background-color: #333;
+            color: white;
+            font-weight: bold;
+        }
+
+        .nav-bar a.active {
+            background-color: black;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 25px;
+            text-align: center;
+            color: green;
+        }
+
+        .contact-info, .chatbot-section, .feedback-section {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info div, .feedback-section div {
+            flex: 1;
+            padding: 15px;
+            background-color: #f1f5f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-info h3, .feedback-section h3 {
+            font-size: 1.2em;
+            color: green;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .contact-info p {
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .chatbot-container {
+            flex: 1;
+            padding: 20px;
+            background-color: #f7f9fc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .chatbot-header {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: green;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .chatbot-box {
+            border: 1px solid #ddd;
+            height: 250px;
+            padding: 15px;
+            overflow-y: auto;
+            background-color: #fff;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .chatbot-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+
+        .chatbot-input:focus {
+            outline: none;
+            border-color: green;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            background-color: #1d3557;
+            color: #fff;
+            font-size: 1em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #457b9d;
+        }
+
+        /* Feedback Form */
+        .feedback-section {
+            margin-top: 30px;
+        }
+
+        .feedback-form input, .feedback-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+
+        .feedback-form input:focus, .feedback-form textarea:focus {
+            outline: none;
+            border-color: green;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            background-color: #1d3557;
+            color: #fff;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            FOOD <span class="bridge">BRIDGE</span>
+        </div>
+        <nav class="nav-bar">
+            <a href="{{ url_for('home') }}" >Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('contact') }}" class="active">Contact</a>
+            <a href="{{ url_for('profile') }}">Profile</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Contact Us</h2>
+
+        <div class="contact-info">
+            <div>
+                <h3>Contact Information</h3>
+                <p><i class="fas fa-envelope"></i> Email: shivarajmani2005@gmail.com</p>
+                <p><i class="fas fa-phone"></i> Phone: +748 333 4990</p>
+                <p><i class="fas fa-map-marker-alt"></i> Address: Bangalore, Karnataka</p>
+            </div>
+            <div>
+                <h3>Find Us</h3>
+                <p>Our office location and directions can be found on the map. Connect with us for any queries or partnership opportunities.</p>
+            </div>
+        </div>
+
+        <div class="chatbot-section">
+            <div class="chatbot-container">
+                <div class="chatbot-header">Chat with Us</div>
+                <div class="chatbot-box" id="chatbox"></div>
+                <input type="text" class="chatbot-input" id="user-input" placeholder="Ask me something..." onkeydown="if(event.key === 'Enter'){sendMessage()}">
+                <div class="button-container">
+                    <button class="btn" onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="feedback-section">
+            <div class="feedback-form">
+                <h3>Feedback</h3>
+                <form onsubmit="submitFeedback(event)">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                    <textarea id="feedback" rows="4" placeholder="Your Feedback" required></textarea>
+                    <div class="button-container">
+                        <button type="submit" class="btn">Submit Feedback</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Food Bridge. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const prompts = [
+            ["hi", "hello", "hey"],
+            ["how are you", "how is life"],
+            ["what are you doing"],
+            ["how old are you"],
+            ["who are you", "are you human"],
+            ["who created you"],
+            ["your name"],
+            ["i love you"],
+            ["help me"],
+            ["bye", "goodbye"],
+            ["what should i eat today"],
+            ["what can i donate", "donate"],
+            ["guidelines for donating"]
+        ];
+
+        const replies = [
+            ["Hello! How can I assist you today?"],
+            ["I'm here to help! How can I assist you?"],
+            ["Just waiting to help you with your queries!"],
+            ["I exist to provide information. What can I assist you with?"],
+            ["I am your digital assistant, here to help!"],
+            ["I was created by Shiv!"],
+            ["I am a chatbot. What can I do for you?"],
+            ["Thanks for the love! ❤️"],
+            ["I'm here to assist. Just ask me anything!"],
+            ["Goodbye! Take care."],
+            ["I suggest you donate food that can help others. What do you have?"],
+            ["You can donate cooked food, raw food, or packed food."]
+        ];
+
+        const chatbox = document.getElementById("chatbox");
+
+        function sendMessage() {
+            let userInput = document.getElementById("user-input").value;
+            if (userInput.trim() === "") return;
+
+            let message = document.createElement("div");
+            message.classList.add("message", "user-message");
+            message.innerHTML = `<p>${userInput}</p>`;
+            chatbox.appendChild(message);
+
+            let botResponse = getBotResponse(userInput);
+            let botMessage = document.createElement("div");
+            botMessage.classList.add("message", "bot-message");
+            botMessage.innerHTML = `<p>${botResponse}</p>`;
+            chatbox.appendChild(botMessage);
+
+            document.getElementById("user-input").value = "";
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
+
+        function getBotResponse(input) {
+            input = input.toLowerCase();
+            for (let i = 0; i < prompts.length; i++) {
+                for (let j = 0; j < prompts[i].length; j++) {
+                    if (input.includes(prompts[i][j])) {
+                        return replies[i][0];
+                    }
+                }
+            }
+            return "Sorry,I'm still in under development.";
+        }
+
+        function submitFeedback(event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const feedback = document.getElementById("feedback").value;
+
+            alert(`Thank you for your feedback!`);
+            console.log({ name, email, feedback });
+        }
+    </script>
+</body>
+</html>

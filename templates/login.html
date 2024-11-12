@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Bridge - 2100 Login Portal</title>
+    <style>
+        /* Reset and global styling */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #0e0e0e, #1c1c1c);
+            color: #e0e0e0;
+            overflow: hidden;
+            animation: neonGlow 8s infinite alternate ease-in-out;
+        }
+
+        /* Neon background animation */
+        @keyframes neonGlow {
+            0% { background: linear-gradient(135deg, #0e0e0e, #1c1c1c); }
+            50% { background: linear-gradient(135deg, #111, #222); }
+            100% { background: linear-gradient(135deg, #0e0e0e, #1c1c1c); }
+        }
+
+        /* Container styling */
+        .container {
+            display: flex;
+            justify-content: center;
+            width: 90%;
+            max-width: 420px;
+            background: linear-gradient(135deg, #1a1a1a, #2b2b2b);
+            padding: 50px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 255, 150, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 255, 150, 0.5);
+        }
+
+        /* Holographic floating icon */
+        .floating-icon {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: rgba(0, 255, 150, 0.2);
+            border-radius: 50%;
+            top: -150px;
+            right: -150px;
+            filter: blur(40px);
+            z-index: 0;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Floating icon animation */
+        @keyframes float {
+            0% { transform: translateY(-10px); }
+            50% { transform: translateY(10px); }
+            100% { transform: translateY(-10px); }
+        }
+
+        /* Form styling */
+        .regform {
+            width: 100%;
+            z-index: 1;
+            text-align: center;
+            color: #e0e0e0;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #00ff96;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+
+        /* Input field styling */
+        .input {
+            margin-bottom: 20px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-icon {
+            font-size: 20px;
+            color: #00ff96;
+            position: absolute;
+            left: 12px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 14px 15px 14px 45px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #e0e0e0;
+            background: #333;
+            outline: none;
+            transition: box-shadow 0.3s ease, transform 0.2s;
+        }
+
+        /* Input hover and focus effects */
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            box-shadow: 0 0 10px rgba(0, 255, 150, 0.6);
+            transform: translateY(-2px);
+        }
+
+        /* Submit button styling */
+        .btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #00ff96;
+            color: #111;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #00e686;
+            transform: scale(1.05);
+        }
+
+        /* Terms and footer styling */
+        .terms {
+            font-size: 13px;
+            color: #bbb;
+            margin-top: 20px;
+        }
+
+        .terms a {
+            color: #00ff96;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .terms a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: #888;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="floating-icon"></div>
+        <div class="regform">
+            <form method="post">
+                <h2>Food Bridge </h2>
+                <div class="input">
+                    <span class="input-icon">&#128100;</span>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="input">
+                    <span class="input-icon">&#9993;</span>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                </div>
+                <div class="input">
+                    <span class="input-icon">&#128274;</span>
+                    <input type="password" id="password" name="password" placeholder="Enter a secure password" required>
+                </div>
+                <div class="btn">
+                    <button type="submit">Access Portal</button>
+                </div>
+                <div class="terms">
+                    By logging in, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

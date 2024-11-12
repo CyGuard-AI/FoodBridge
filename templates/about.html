@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <script>
+        hamburger=document.querySelector(".hamburger");
+        hamburger.onclick =function(){
+            navBar=document.querySelector(".nav-bar");
+            navBar.classList.toggle("active");
+        }
+    </script>
+    <style>
+      /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+        /* Header Section */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            margin-bottom: 3%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: 9black;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-bar .nav li a {
+            font-size: 1.3rem;
+            padding: 13px 22px;
+            color: #333;
+            text-decoration: none;
+            margin-right: 5px;
+            text-transform: capitalize;
+        }
+
+        .bridge{
+            font-weight: bold;
+            color: #06C167;
+        }
+
+        .nav-bar .nav li a:hover,
+        .nav-bar .nav li a.active {
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            border-radius: 20px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .profile-info {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            background-color: #ffffff;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
+            text-align: right;
+            display: inline-block;
+        }
+
+        .profile-info p {
+            margin: 5px 0;
+        }
+
+        .profile-info button {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .profile-info button:hover {
+            background-color: #c82333;
+        }
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    header .hamburger {
+        display: flex;
+    }
+
+    header .nav-bar {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #fff;
+        width: 100%;
+    }
+
+    header .nav-bar.active {
+        display: flex;
+        flex-direction: column;
+    }
+
+    header .nav-bar ul {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Hero Section */
+.coverc {
+    display: grid;
+    place-items: center;
+    padding-top: 8rem;
+    background: url('img/about3.jpg') no-repeat center center / cover;
+    color: #fff;
+}
+
+.title {
+    font-size: 38px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* About Us Section */
+.para {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-size: 1.2rem;
+}
+
+.para p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Map Section */
+.map {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.map iframe {
+    border-radius: 8px;
+}
+
+/* About 1 - Bootstrap Component */
+section.py-3.py-md-5 {
+    padding: 3rem 1rem;
+    background-color: #fff;
+}
+
+section h2 {
+    font-size: 2rem;
+    color: #333;
+    font-weight: bold;
+}
+
+section h1 {
+    font-size: 2.5rem;
+    color: #06C167;
+    margin-bottom: 1rem;
+}
+
+section p {
+    color: #555;
+}
+.footer {
+  background-color: #414141;
+  width: 100%;
+  padding: 10px;
+  color: #ffffff;
+  font-size: 16px; /* Increased base font size */
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer .footer-left,
+.footer .footer-center,
+.footer .footer-right {
+  flex: 1;
+  min-width: 280px;
+  padding: 0 20px;
+}
+
+/* Footer Left Section */
+.footer .footer-left {
+  text-align: left;
+  color: #e0e0e0;
+}
+
+.footer .footer-left .about {
+  line-height: 1.8;
+  font-size: 15px; /* Slightly larger font size */
+}
+
+.footer .footer-left .about span {
+  font-size: 20px; /* Larger heading font size */
+  font-weight: bold;
+  color: #06C167;
+}
+
+/* Footer Center Section */
+.footer .footer-center {
+  text-align: center;
+  color: #ffffff;
+}
+
+.footer .footer-center p {
+  font-size: 16px; /* Larger font size for center text */
+}
+
+.footer .footer-center .sociallist ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+/* Footer Right Section */
+.footer .footer-right {
+  text-align: right;
+  color: #e0e0e0;
+}
+
+.footer .footer-right h2 {
+  font-size: 38px; /* Larger heading font size */
+  font-weight: normal;
+}
+
+.footer .footer-right h2 span {
+  color: #06C167;
+}
+
+.footer .footer-right .menu {
+  font-size: 16px; /* Larger menu font size */
+  margin: 20px 0;
+}
+
+.footer .footer-right .menu a {
+  color: #e0e0e0;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer .footer-right .menu a:hover {
+  color: #06C167;
+}
+
+.footer .footer-right .name {
+  color: #06C167;
+  font-size: 15px; /* Slightly larger font size for footer name */
+  margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer .footer-left,
+  .footer .footer-center,
+  .footer .footer-right {
+    text-align: center;
+    padding: 10px;
+  }
+
+  .footer .footer-left .about,
+  .footer .footer-center p,
+  .footer .footer-right h2 {
+    font-size: 16px; /* Increased font size for mobile */
+  }
+}
+
+
+       
+        
+        .coverc{
+          width: 100%;
+          height: 400px;
+          background:url('img/about3.jpg')no-repeat;
+    background-size: cover;
+    display: grid;
+    place-items:center;
+    padding-top: 8rem;
+ 
+        } 
+        .title{
+          font-size: 38px;
+          text-align: center;
+          align-items: center; 
+        }
+       
+        .para p{
+            font-size: 23px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+          @media (max-width: 767px) {
+            .para p{
+               font-size: 16px;
+               /* margin-left: 10px; */
+              }
+            #pptslide{
+                height: 200px;
+                width: 300px;
+
+            }
+            #map{
+              height: 200px;
+                width: 300px;
+
+
+            }
+            #overview{
+              height: 200px;
+                width: 300px;
+            }
+            
+        .title{
+          font-size: 28px;
+          margin: 10px;
+          text-align: center;
+          align-items: center; 
+        }
+       
+
+          }
+     
+    </style>
+ 
+    <header class="sticky-top bg-light shadow-sm">
+      <div class="container">
+          <div class="d-flex justify-content-between align-items-center py-3">
+              <div class="logo">
+                  Food <spam class="bridge">Bridge</spam>
+              </div>
+              <button class="hamburger btn btn-outline-secondary d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                  <span class="line"></span>
+                  <span class="line"></span>
+                  <span class="line"></span>
+              </button>
+              <nav class="nav-bar d-none d-md-block">
+                  <ul class="nav">
+                      <li><a href="{{ url_for('home') }}" >Home</a></li>
+                      <li><a href="{{ url_for('about') }}" class="active">About</a></li>
+                      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                      <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                  </ul>
+              </nav>
+          </div>
+      </div>
+  </header>
+    <p class="title">"Welcome to Food Bridge"</p>
+    <br>
+    <br>
+    <br>
+    <p class="heading text-center" style="font-size: 3rem; font-weight: bold; letter-spacing: 1px; color: #06C167;">About Us</p>
+    >
+        <!-- <p  style=" font-size:30px ; text-align: center;" > ABOUT <span>US</span> </p> -->
+      
+        <!-- <br> -->
+      <div class="para">
+        <!-- <p>"Welcome to Food Bridge, India's largest and most trusted donating platform that connects donors to verified nonprofits. FoodDonate helps you become a ray of hope for people in need. Choose a cause that is close to your heart and join hands with millions of donors like you who aim to make this world a better place."</p> -->
+      
+        <p>We are a team of passionate individuals committed to addressing the issue of food waste in India. Our goal is to create a system that connects food donors with charities and NGOs, while also reducing the environmental impact of food waste.</p>
+      </div>
+      <br>
+ 
+      
+    
+      <br>
+      
+
+
+<div class="map"  style="  text-align: center; padding-bottom: 50px;" >
+<p  style=" font-size:30px ;" > Location  </p>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.395497158447!2d77.44229597586776!3d12.88227128742506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15754055b99f%3A0xb10a8dc810207db8!2sDon%20Bosco%20Institute%20Of%20Technology!5e0!3m2!1sen!2sin!4v1731049394613!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+<!-- About 1 - Bootstrap Brain Component -->
+<section class="py-3 py-md-5">
+  <div class="container">
+    <div class="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
+      <div class="col-12 col-lg-6 col-xl-5">
+        <img class="img-fluid rounded" src="{{ url_for('static', filename='img/hog.jpeg') }}" alt="Image">
+
+      </div>
+      <div class="col-12 col-lg-6 col-xl-7">
+        <div class="row justify-content-xl-center">
+          <div class="col-12 col-xl-11">
+            <h2 class="mb-3">Who Are We?</h2>
+            <h1>Hog Riders</h1>
+            <p class="lead fs-4 text-secondary mb-3">Mahesh Kumar G, a seasoned Prompt Engineer from Don Bosco Institute of Technology, Bangalore, leads a team of talented developers. The team comprises Shivaraj M, an AI engineer, Madhan K U, a skilled Front-end Developer, and Gopi Charan Reddy V, a Backend Developer from Jyothi Institute of Technology, Bangalore.</p>
+            <p class="mb-5">Our website, Food Bridge(Food Donation Management System), is designed to help those in need by facilitating food donations. It serves as a platform for people to donate food to those who require it most. The website aims to connect donors and recipients, ensuring that food reaches those who need it.</p>
+            <div class="row gy-4 gy-md-0 gx-xxl-5X">
+              <div class="col-12 col-md-6">
+                <div class="d-flex">
+                  <div class="me-4 text-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                      <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h2 class="h4 mb-3">Versatile Brand</h2>
+                    <p class="text-secondary mb-0">We are crafting a digital method that subsists life across all mediums.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="d-flex">
+                  <div class="me-4 text-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-fire" viewBox="0 0 16 16">
+                      <path d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16Zm0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15Z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h2 class="h4 mb-3">Digital Agency</h2>
+                    <p class="text-secondary mb-0">We believe in innovation by merging primary with elaborate ideas.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+     
+     <footer class="footer">
+      <div class="footer-left col-md-4 col-sm-6">
+        <p class="about">
+          <span> About us</span>The basic concept of this project Food Waste Management is to collect the excess/leftover
+          food from donors such as hotels, restaurants, marriage halls , etc and distribute to the needy people .
+        </p>
+  
+      </div>
+      <div class="footer-center col-md-4 col-sm-6">
+        <div>
+          <p><span> Contact</span> </p>
+  
+        </div>
+        <div>
+          <p>Hog Riders</p><br>
+          <p> (+91) 748 333 4990</p>
+  
+        </div>
+        <div>
+          <!-- <i class="fa fa-envelope" style="font-size: 17px;
+              line-height: 38px; color:white;"></i> -->
+          <p><a href="#"> shivarajmani2005@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="footer-right col-md-4 col-sm-6">
+        <h2> Food<span> Bridge</span></h2>
+        <!-- <h2>Food Bridge</h2> -->
+        <p class="menu">
+          <a href="{{ url_for('home') }}">Home</a>
+               <a href="{{ url_for('about') }}" >About</a>
+               <a href="{{ url_for('contact') }}">Contact</a>
+                <a href="{{ url_for('profile') }}">Profile</a>
+        </p>      <p class="name"> Food Bridge 2024 | Hog Riders</p>
+      </div>
+    </footer>
+</body>
+</html>

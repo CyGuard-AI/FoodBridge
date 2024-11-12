@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Donation</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f0f2f5;
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #007bff;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .radio-group input[type="radio"] {
+            margin-top: 3px;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        button[type="reset"] {
+            width: 48%;
+            padding: 12px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            color: #333;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-right: 4%;
+        }
+
+        button[type="reset"]:hover {
+            background-color: #e0e0e0;
+        }
+
+        .contributions-button {
+            width: 48%;
+            padding: 12px;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contributions-button:hover {
+            background-color: #218838;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Food Donation Form</h2>
+        <form action="/donate" method="POST">
+            <div class="form-group">
+                <label for="food_name">Food Name</label>
+                <input type="text" id="food_name" name="food_name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Meal Type</label>
+                <div class="radio-group">
+                    <input type="radio" id="veg" name="meal_type" value="Veg" required>
+                    <label for="veg">Veg</label>
+
+                    <input type="radio" id="non_veg" name="meal_type" value="Non-veg" required>
+                    <label for="non_veg">Non-veg</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Category</label>
+                <div class="radio-group">
+                    <input type="radio" id="raw" name="category" value="Raw Food" required>
+                    <label for="raw">Raw Food</label>
+
+                    <input type="radio" id="cooked" name="category" value="Cooked Food" required>
+                    <label for="cooked">Cooked Food</label>
+
+                    <input type="radio" id="packed" name="category" value="Packed Food" required>
+                    <label for="packed">Packed Food</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="quantity">Quantity (number of people / kg)</label>
+                <input type="text" id="quantity" name="quantity" required>
+            </div>
+
+            <div class="form-group">
+                <label for="donor_name">Donor Name</label>
+                <input type="text" id="donor_name" name="donor_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone_number">Phone No</label>
+                <input type="text" id="phone_number" name="phone_number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="district">District</label>
+                <select id="district" name="district" required>
+                    <option value="Bengaluru Urban">Bengaluru Urban</option>
+                    <option value="Bengaluru Rural">Bengaluru Rural</option>
+                    <option value="Bagalkot">Bagalkot</option>
+                    <option value="Ballari">Ballari</option>
+                    <option value="Belagavi">Belagavi</option>
+                    <option value="Bidar">Bidar</option>
+                    <option value="Chamarajanagar">Chamarajanagar</option>
+                    <option value="Chikballapur">Chikballapur</option>
+                    <option value="Chikkamagaluru">Chikkamagaluru</option>
+                    <option value="Davanagere">Davanagere</option>
+                    <option value="Dharwad">Dharwad</option>
+                    <option value="Gadag">Gadag</option>
+                    <option value="Hassan">Hassan</option>
+                    <option value="Haveri">Haveri</option>
+                    <option value="Kodagu">Kodagu</option>
+                    <option value="Kolar">Kolar</option>
+                    <option value="Koppal">Koppal</option>
+                    <option value="Mandya">Mandya</option>
+                    <option value="Mysuru">Mysuru</option>
+                    <option value="Raichur">Raichur</option>
+                    <option value="Ramanagara">Ramanagara</option>
+                    <option value="Shivamogga">Shivamogga</option>
+                    <option value="Tumakuru">Tumakuru</option>
+                    <option value="Udupi">Udupi</option>
+                    <option value="Uttara Kannada">Uttara Kannada</option>
+                    <option value="Vijayapura">Vijayapura</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" required></textarea>
+            </div>
+
+            <button type="submit" style="padding: 12px 25px; background-color: #007bff; border: none; border-radius: 5px; color: white; font-weight: bold; cursor: pointer; transition: background-color 0.3s; width: 100%;">
+                Submit Donation
+            </button>
+            
+            <div style="display: flex; justify-content: center; gap: 15px; margin-top: 20px;">
+                <!-- Clear Button -->
+                <button type="reset" style="padding: 12px 25px; background-color: #f8f9fa; border: 1px solid #ccc; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background-color 0.3s; width: auto;">
+                    Clear
+                </button>
+            </div>
+            
+            
+        </form>
+
+        {% if msg %}
+            <p class="message">{{ msg }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

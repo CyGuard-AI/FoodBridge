@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Bridge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        /* General Styles */
+        body{
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: black;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-bar .nav li a {
+            font-size: 1.3rem;
+            padding: 13px 22px;
+            color: #333;
+            text-decoration: none;
+            margin-right: 5px;
+            text-transform: capitalize;
+        }
+
+        .bridge{
+            font-weight: bold;
+            color: #06C167;
+        }
+
+        .nav-bar .nav li a:hover,
+        .nav-bar .nav li a.active {
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            border-radius: 20px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .profile-info {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            background-color: #ffffff;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
+            text-align: right;
+            display: inline-block;
+        }
+
+        .profile-info p {
+            margin: 5px 0;
+        }
+
+        .profile-info button {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .profile-info button:hover {
+            background-color: #c82333;
+        }
+
+        /* Banner Section */
+        .banner {
+            position: relative;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .banner img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .banner img:hover {
+            transform: scale(1.05);
+        }
+
+        .donate-button {
+            margin-top: 20px;
+            background-color: #06C167;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            color: white;
+            border-radius: 30px;
+            border: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: background-color 0.3s ease-in-out;
+            transition: letter-spacing 0.3s;
+        }
+
+        .donate-button:hover {
+            background-color: #04a157;
+            letter-spacing: 4px;
+        }
+        .lead{
+            margin-bottom: 15px;
+        }
+        .content{
+            margin-top: -40px;
+            margin-bottom: -15px;
+        }
+        .content p {
+            font-size: 1.7rem;
+            color: #333;
+            margin-top: 0px;
+            font-weight: 500;
+        }
+
+        .photo .heading {
+            font-size: 2.1rem;
+            font-weight: bold;
+            color: black;
+        }
+        .heading{
+            text-decoration: underline;
+            margin-bottom: 17px;
+            text-decoration-color: #06C167;
+        }
+
+        .photo .box img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .photo .box img:hover {
+            transform: scale(1.05);
+        }
+
+        .footer {
+  background-color: #414141;
+  width: 100%;
+  padding: 10px;
+  color: #ffffff;
+  font-size: 16px; /* Increased base font size */
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer .footer-left,
+.footer .footer-center,
+.footer .footer-right {
+  flex: 1;
+  min-width: 280px;
+  padding: 0 20px;
+}
+
+/* Footer Left Section */
+.footer .footer-left {
+  text-align: left;
+  color: #e0e0e0;
+}
+
+.footer .footer-left .about {
+  line-height: 1.8;
+  font-size: 15px; /* Slightly larger font size */
+}
+
+.footer .footer-left .about span {
+  font-size: 20px; /* Larger heading font size */
+  font-weight: bold;
+  color: #06C167;
+}
+
+/* Footer Center Section */
+.footer .footer-center {
+  text-align: center;
+  color: #ffffff;
+}
+
+.footer .footer-center p {
+  font-size: 16px; /* Larger font size for center text */
+}
+
+.footer .footer-center .sociallist ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+/* Footer Right Section */
+.footer .footer-right {
+  text-align: right;
+  color: #e0e0e0;
+}
+
+.footer .footer-right h2 {
+  font-size: 38px; /* Larger heading font size */
+  font-weight: normal;
+}
+
+.footer .footer-right h2 span {
+  color: #06C167;
+}
+
+.footer .footer-right .menu {
+  font-size: 16px; /* Larger menu font size */
+  margin: 20px 0;
+}
+
+.footer .footer-right .menu a {
+  color: #e0e0e0;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer .footer-right .menu a:hover {
+  color: #06C167;
+}
+
+.footer .footer-right .name {
+  color: #06C167;
+  font-size: 15px; /* Slightly larger font size for footer name */
+  margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer .footer-left,
+  .footer .footer-center,
+  .footer .footer-right {
+    text-align: center;
+    padding: 10px;
+  }
+
+  .footer .footer-left .about,
+  .footer .footer-center p,
+  .footer .footer-right h2 {
+    font-size: 16px; /* Increased font size for mobile */
+  }
+}
+
+        
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .profile-info {
+                right: 10px;
+            }
+
+            .nav-bar .nav {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hamburger {
+                display: none;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header class="sticky-top bg-light shadow-sm">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center py-3">
+                <div class="logo">
+                    Food <spam class="bridge">Bridge</spam>
+                </div>
+                <button class="hamburger btn btn-outline-secondary d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </button>
+                <nav class="nav-bar d-none d-md-block">
+                    <ul class="nav">
+                        <li><a href="{{ url_for('home') }}" class="active">Home</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                        <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Food Bridge</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="nav flex-column">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}" ></a>About</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('profile') }}">Profile</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <main>
+        <section class="banner text-center py-5">
+            <div class="banner">
+                <img src="static/img/m.jpeg" alt="Project Image 2" class="img-fluid rounded">
+            </div>
+            <a href="{{ url_for('donate') }}" class="btn btn-lg btn-success donate-button">Donate Food</a>
+            <a href="{{ url_for('dashboard') }}" class="btn btn-lg btn-success donate-button">Contributions</a>
+        </section>
+
+        <!-- Our Mission Section -->
+        <div class="content text-center py-0">
+            <p >
+                “We partner with organisations across the city to help people”
+            </p>
+        </div>
+
+        <div class="photo text-center py-5">
+            <p class="heading display-4">Our Works</p>
+            <p class="lead mb-4">"Be part of something that really makes a difference."</p>
+            <div class="d-flex justify-content-center gap-4">
+                <div class="box" style="max-width: 600px;">
+                    <img src="static/img/a1.jpg" alt="food image 1" class="img-fluid rounded">
+                </div>
+                <div class="box" style="max-width: 600px;">
+                    <img src="static/img/p3.jpeg" alt="food image 2" class="img-fluid rounded">
+                </div>
+                <div class="box" style="max-width: 600px;">
+                    <img src="static/img/p1.jpeg" alt="food image 3" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+        
+    </main><footer class="footer">
+        <div class="footer-left col-md-4 col-sm-6">
+            <p class="about">
+                <span>About Us</span>
+                <div>
+                    Food Bridge collects excess food from donors like hotels, restaurants, and marriage halls to distribute to those in need. Together, we're working to minimize food waste and support our community.
+                </div>
+            </p>
+        </div>
+        <div class="footer-center col-md-4 col-sm-6">
+            <p><span>Contact Us</span></p>
+            <p>Hog Riders</p>
+            <p>Phone: <a href="tel:+917483334990">(+91) 748 333 4990</a></p>
+            <p>Email: <a href="mailto:shivarajmani2005@gmail.com">shivarajmani2005@gmail.com</a></p>
+        </div>
+        <div class="footer-right col-md-4 col-sm-6">
+            <h2>Food<span>Bridge</span></h2>
+            <p class="menu">
+               <a href="{{ url_for('home') }}">Home</a>
+               <a href="{{ url_for('about') }}" >About</a>
+               <a href="{{ url_for('contact') }}">Contact</a>
+                <a href="{{ url_for('profile') }}">Profile</a>
+            
+            </p>
+            <p class="name">© 2024 Food Bridge | Hog Riders</p>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+    
+
+</html>
